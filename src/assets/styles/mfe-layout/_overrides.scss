@@ -1,0 +1,354 @@
+// Suggested location to add your overrides so that migration would be easy by just updating the SASS folder in the future
+:root {
+    --transition-sidebar: .5s;
+    --width-sidebar-open: 304px;
+    --width-sidebar-collapse: 85px;
+    // --color-hightlight: #EFDCF5;
+    --color-hightlight: rgba(154, 95, 163, 0.18);
+    --color-base-1: #F5F3F7;
+}
+
+
+.layout-wrapper {
+    display: flex;
+
+    .layout-sidebar {
+        position: sticky;
+        top: 0px;
+        left: 0px;
+        overflow-x: hidden;
+        height: 100vh;
+        border-radius: 0 20px 20px 0;
+        box-shadow: none;
+        padding: 0.95rem;
+
+        .pi {
+            font-size: 1.5rem;
+            margin-left: 1px;
+        }
+
+        .layout-menu li a span {
+            margin-left: 1.3rem;
+            white-space: nowrap;
+        }
+
+        .p-button {
+            padding-left: 1.1rem;
+
+            &:enabled:hover {
+                background: #ffd9da;
+                color: rgba(0, 0, 0, 0.78);
+            }
+
+            &.bg-menu__button {
+                background: #FFDAD3;
+                color: rgba(0, 0, 0, 0.78);
+                box-shadow:0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.2);
+            }
+
+            .p-button-label {
+                margin-left: 1.1rem;
+                border: 1px;
+                padding-right: 5px;
+                white-space: nowrap;
+            }
+        }
+
+        .p-badge {
+            position: absolute;
+            right: 5px;
+        }
+
+        .layout-menu-container {
+            height: calc(100% - 280px);
+            .layout-menu {
+                li:nth-last-child(2) {
+                    // margin-top: 5rem;
+                }
+            }
+            &:last-child {
+                height:auto;
+            }
+        }
+
+        .layout-sidebar-top {
+            height: 200px;    
+        }
+
+        .layout-top-logo {
+
+            display: flex;
+            justify-content: space-between;
+            margin-left: 0.6rem;
+            .layout-menu-button {
+                color: var(--text-color-secondary);
+            }
+
+            .logo {
+                position: relative;
+                width: 80px;
+                min-width: 80px;
+
+                .overPanel {
+                    width: 0%;
+                    height: 100%;
+                    top: 0px;
+                    right: 0px;
+                    z-index: 2;
+                    background: var(--surface-ground);
+                    position: absolute;
+                    transition: var(--transition-sidebar);
+                }
+
+                img {
+                    width: 100%;
+
+                    transition: var(--transition-sidebar);
+                }
+            }
+        }
+
+
+        .layout-avatar {
+            width: 85px;
+            height: 85px;
+            background: #fff;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 2rem auto 2rem;
+            transition: var(--transition-sidebar);
+
+            img {
+                width: 80%;
+                margin: 5px;
+                margin-left: 7px;
+            }
+        }
+
+        .layout-menuname-root-text {
+            padding-left: 1rem;
+            text-transform: uppercase;
+            color: var(--surface-900);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+        }
+        
+        .menu-config {
+            .layout-menu {
+                padding-top: 1.2rem;
+                border-top: 1px solid #cecece;
+                margin-top: 1.1rem;
+            }
+        }
+    }
+
+    .p-menubar {
+        background: var(--surface-e);
+
+        .p-menuitem-link {
+            font-weight: bold;
+        }
+
+        .p-menubar-root-list {
+
+            .p-menuitem-link.router-link-active.router-link-active-exact {
+
+                .p-menuitem-text,
+                .p-menuitem-icon {
+                    color: var(--text-color);
+                }
+            }
+        }
+    }
+
+    .layout-topbar {
+        position: inherit;
+        margin-bottom: 2rem;
+        padding-left: 0;
+        padding-right: 0;
+        background: none;
+    }
+
+    .layout-main-container {
+        padding: 0 2rem 2rem 2rem;
+    }
+
+
+    .layout-menu li a {
+        border-radius: 100px;
+        color: var(--text-color-secondary);
+        font-weight: bold;
+    }
+
+    .layout-menu li a.router-link-active,
+    .router-link-active-exact {
+        background: var(--color-hightlight);
+        color: var(--text-color);
+    }
+
+
+    input,
+    .p-dropdown,
+    textarea,
+    button {
+        border-radius: 26px;
+    }
+
+    //TODO remove al cambiar el theme a normal en vez de compacto
+    button {
+        padding-top: 10.5px;
+        padding-bottom: 10.5px;
+    }
+
+    .layout-config .layout-config-button {
+        background-color: var(--surface-card);
+        color: var(--text-color-secondary);
+        box-shadow: -1px 1px 2px rgb(0 0 0 / 20%);
+    }
+
+    .p-menu-separator {
+        border-top: 1px solid var(--surface-border);
+        margin: 0.5rem 0;
+    }
+
+    .p-datatable {
+        .p-datatable-header {
+            border-radius: 20px 20px 0 0;
+        }
+    }
+
+    &.layout-static-sidebar-inactive {
+        .layout-sidebar {
+            .p-button {
+                width: 100%;
+                min-width: 100%;
+                padding: 0.75rem 0.75rem;
+            }
+        }
+
+        .layout-menuname-root-text {
+            padding-left: 0;
+        }
+
+        .layout-menu-button {
+            margin-left: 8px;
+        }
+
+        .layout-top-logo {
+            flex-direction: column;
+
+            .logo {
+
+                .overPanel {
+                    width: 60%;
+                    transition: var(--transition-sidebar);
+                }
+            }
+        }
+
+        .layout-avatar {
+            width: 36px;
+            height: 36px;
+            transition: var(--transition-sidebar);
+
+            img {
+                width: 75%;
+                margin-left: 5px;
+            }
+        }
+
+        .p-badge {
+            position: absolute;
+            right: 4px;
+            top: 3px;
+            min-width: 1.3rem;
+            height: 1.3rem;
+            line-height: 1.3rem;
+        }
+    }
+
+    .layout-config {
+        background: var(--surface-card);
+        border-top-left-radius: 25px;
+        border-bottom-left-radius: 25px;
+        box-shadow: -1px 1px 2px rgb(0 0 0 / 20%);
+
+        .layout-config-button {
+            left: -50px;
+        }
+
+        .scroll-panel {
+            height: 85%;
+        }
+
+        .md-45 {
+            font-size: 45px;
+            line-height: inherit;
+        }
+    }
+
+    .grid.h-full {
+        margin: 0;
+
+        .col-12 {
+            padding: 0;
+        }
+    }
+}
+
+input,
+    .p-dropdown,
+    textarea,
+    button {
+        border-radius: 26px;
+        border:1px solid lime;
+    }
+
+
+
+
+
+
+
+@media (min-width: 992px) {
+    .layout-wrapper.layout-mobile-sidebar-active .layout-sidebar {
+        transform: inherit;
+        width: var(--width-sidebar-open);
+        transition: width var(--transition-sidebar);
+
+        .layout-menu li a {
+            padding: 0.85rem;
+        }
+    }
+
+    .layout-wrapper.layout-static.layout-static-sidebar-inactive .layout-sidebar {
+        transform: inherit;
+        left: inherit;
+        width: var(--width-sidebar-collapse);
+        transition: width var(--transition-sidebar);
+
+        .layout-menu li a {
+            padding: 0.75rem 0.75rem;
+            border-radius: 20px;
+
+            span {
+                margin-left: 1rem;
+            }
+        }
+    }
+
+    .layout-wrapper.layout-static .layout-main-container {
+        margin-left: inherit;
+        width: calc(100% - var(--width-sidebar-open));
+        transition: width var(--transition-sidebar);
+    }
+
+    .layout-wrapper.layout-static.layout-static-sidebar-inactive .layout-main-container {
+        margin-left: inherit;
+        padding-left: 2rem;
+        width: calc(100% - var(--width-sidebar-collapse));
+        transition: width var(--transition-sidebar);
+    }
+}
+
